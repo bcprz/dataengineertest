@@ -1,0 +1,6 @@
+Summary: 
+
+
+I've created a staging table which reads the data from the daily file.  The file will then be read by a delta - query which looks to insert to the final "production table" only those records which aren't already present in the "production table" which assumes the VIN as the key value.  Given the 100 records in the data file.  The VIN is unique.  This assumes that any price changes are again, uniquely tied to the VIN.  We could also consider a "history" table which moves first the older record in case of a "new" to a history cache.  
+
+The delta adds an efficiency by ensuring no duplicates are created for a given VIN.  And If there are no changes (deltas) it does not insert a new record. 
