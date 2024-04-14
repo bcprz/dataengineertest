@@ -1,0 +1,29 @@
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW [dbo].[test]
+AS
+SELECT [File_Date]
+      ,[Dealer_ID]
+      ,[Dealer_Name]
+      ,[Vin_Number]
+      ,[Condition]
+      ,[Year]
+      ,[Make]
+      ,[Model]
+      ,[Trim]
+      ,[Exterior_Color]
+      ,[Interior_Color]
+      ,[MSRP]
+      ,[Internet_Price]
+      ,[Price_Change_Date]
+  FROM [test].[dbo].[Veh_inv];
+
+GO
+
+

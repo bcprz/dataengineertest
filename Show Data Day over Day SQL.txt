@@ -1,0 +1,15 @@
+
+Write a query that shows the data day-over-day [Dimensions: Report Day, Vehicle Year, Vehicle Make, Vehicle Condition], [Metrics: Count of vehicles by dimensions, average MSRP for new, average internet prices for all]
+
+
+SELECT  [File_Date]
+      , [Year]
+      ,[Make]
+	  ,[Condition], count(*) Veh_Count,
+	  case when Condition = 'New' or Condition = 'Used' then avg(internet_price)  end as Average_InternetPrice,
+	  case when condition = 'New' then avg(msrp) end as Average_MSRP
+       FROM [Temporary].[dbo].[Veh_inv]
+	   group by  [File_Date]
+      , [Year]
+      ,[Make]
+	  ,[Condition]
